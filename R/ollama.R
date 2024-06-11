@@ -13,7 +13,7 @@ package_config <- list(
 #' Creates a httr2 request object with base URL, headers and endpoint. Used by other functions in the package and not intended to be used directly.
 #'
 #' @param endpoint The endpoint to create the request
-#' @param address The base URL to use. Default is NULL, which uses http://127.0.0.1:11434
+#' @param address The base URL to use. Set env var, otherwise defaults to "".
 #'
 #' @return A httr2 request object.
 #' @export
@@ -22,10 +22,10 @@ package_config <- list(
 #' create_request("/api/tags")
 #' create_request("/api/chat")
 #' create_request("/api/embeddings")
-create_request <- function(endpoint, address = NULL) {
+create_request <- function(endpoint, address = Sys.getenv("OLLAMA_URL")) {
 
     url <- package_config$baseurls[1]  # use default base URL
-    if (!is.null(address)) url <- address  # use custom base URL
+    if (!address == "") url <- address  # use custom base URL
     url <- httr2::url_parse(url)
     url$path <- endpoint
     req <- httr2::request(httr2::url_build(url))
