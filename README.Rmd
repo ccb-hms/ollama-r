@@ -27,17 +27,23 @@ See [Ollama's Github page](https://github.com/ollama/ollama) for more informatio
 
 ## Installation
 
-1. You should have the Ollama app installed on your computer. Download it from [Ollama](https://ollama.com/).
-
-2. Open/launch the Ollama app to start the local server. You can then run your language models locally, on your own machine/computer. 
-
-3. Install the development version of `ollamar` R library like so:
+1. Install the development version of `ollamar` R library with devtoolsIf it doesn't work or you don't have `devtools` installed, please run `install.packages("devtools")` in R or RStudio first. 
 
 ``` r
+if (!require("devtools", quietly = TRUE))
+    install.packages("devtools")
 devtools::install_github("ccb/ollamar")
 ```
 
-If it doesn't work or you don't have `devtools` installed, please run `install.packages("devtools")` in R or RStudio first. 
+2. Open/launch the [Ollama](https://ollama.com/). app to start the local server. Or launch the Ollama container on your server taking note of the URL where it is hosted. 
+
+3. In your R terminal, set an environment variable __OLLAMA_URL__ to "http://localhost:11434" if running local or to the URL where it is hosted. 
+
+``` r
+ Sys.setenv(OLLAMA_URL = "http://computing-cluster-example.org:11434")
+```
+
+
 
 ## Usage
 
