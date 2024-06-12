@@ -32,7 +32,7 @@ See [Ollama's Github page](https://github.com/ollama/ollama) for more informatio
 ``` r
 if (!require("devtools", quietly = TRUE))
     install.packages("devtools")
-devtools::install_github("ccb/ollamar")
+devtools::install_github("ccb-hms/ollama-r")
 ```
 
 2. Open/launch the [Ollama](https://ollama.com/). app to start the local server. Or launch the Ollama container on your server taking note of the URL where it is hosted. 

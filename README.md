@@ -33,7 +33,7 @@ use this library.
 ``` r
 if (!require("devtools", quietly = TRUE))
     install.packages("devtools")
-devtools::install_github("ccb/ollamar")
+devtools::install_github("ccb-hms/ollama-r")
 ```
 
 2.  Open/launch the [Ollama](https://ollama.com/). app to start the
