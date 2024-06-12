@@ -34,7 +34,7 @@ See [Ollama's Github page](https://github.com/ollama/ollama) for more informatio
 3. Install the development version of `ollamar` R library like so:
 
 ``` r
-devtools::install_github("hauselin/ollamar")
+devtools::install_github("ccb/ollamar")
 ```
 
 If it doesn't work or you don't have `devtools` installed, please run `install.packages("devtools")` in R or RStudio first. 
@@ -51,10 +51,6 @@ test_connection()  # test connection to Ollama server; returns a httr2 response 
 # <httr2_response>
 
 list_models()  # list available models (models you've pulled/downloaded)
-   name                     size    parameter_size quantization_level modified           
-   <chr>                    <chr>   <chr>          <chr>              <chr>              
- 1 llama3:latest            4.7 GB  8B             Q4_0               2024-05-01T21:01:00
- 2 mistral-openorca:latest  4.1 GB  7B             Q4_0               2024-04-25T16:45:00
 ```
 
 ### Pull/download model
