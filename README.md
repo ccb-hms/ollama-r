@@ -26,20 +26,27 @@ use this library.
 
 ## Installation
 
-1.  You should have the Ollama app installed on your computer. Download
-    it from [Ollama](https://ollama.com/).
-
-2.  Open/launch the Ollama app to start the local server. You can then
-    run your language models locally, on your own machine/computer.
-
-3.  Install the development version of `ollamar` R library like so:
+1.  Install the development version of `ollamar` R library with
+    devtoolsIf it doesn’t work or you don’t have `devtools` installed,
+    please run `install.packages("devtools")` in R or RStudio first.
 
 ``` r
-devtools::install_github("hauselin/ollamar")
+if (!require("devtools", quietly = TRUE))
+    install.packages("devtools")
+devtools::install_github("ccb/ollamar")
 ```
 
-If it doesn’t work or you don’t have `devtools` installed, please run
-`install.packages("devtools")` in R or RStudio first.
+2.  Open/launch the [Ollama](https://ollama.com/). app to start the
+    local server. Or launch the Ollama container on your server taking
+    note of the URL where it is hosted.
+
+3.  In your R terminal, set an environment variable **OLLAMA_URL** to
+    “<http://localhost:11434>” if running local or to the URL where it
+    is hosted.
+
+``` r
+ Sys.setenv(OLLAMA_URL = "http://computing-cluster-example.org:11434")
+```
 
 ## Usage
 
@@ -56,10 +63,6 @@ test_connection()  # test connection to Ollama server; returns a httr2 response 
 # <httr2_response>
 
 list_models()  # list available models (models you've pulled/downloaded)
-   name                     size    parameter_size quantization_level modified           
-   <chr>                    <chr>   <chr>          <chr>              <chr>              
- 1 llama3:latest            4.7 GB  8B             Q4_0               2024-05-01T21:01:00
- 2 mistral-openorca:latest  4.1 GB  7B             Q4_0               2024-04-25T16:45:00
 ```
 
 ### Pull/download model
